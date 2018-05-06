@@ -89,7 +89,7 @@ namespace Manatee.Trello.Internal.DataAccess
 		Member_Read_Notifications,
 		Member_Read_Organizations,
 		Member_Read_Refresh,
-		//Member_Read_Sessions,
+		Member_Read_Tokens,
 		Member_Write_CreateBoard,
 		Member_Write_CreateOrganization,
 		Member_Write_Update,

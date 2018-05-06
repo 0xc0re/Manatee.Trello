@@ -143,5 +143,10 @@ namespace Manatee.Trello.Json
 		/// </summary>
 		[JsonDeserialize]
 		List<IJsonOrganization> Organizations { get; set; }
+		/// <summary>
+		/// Gets or sets a collection of tokens.
+		/// </summary>
+		[JsonDeserialize]
+		List<IJsonToken> Tokens { get; set; }
 	}
 }

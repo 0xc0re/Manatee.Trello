@@ -54,5 +54,10 @@
 		/// Gets or sets the member's username.
 		/// </summary>
 		new string UserName { get; set; }
+
+		/// <summary>
+		/// Get the collection of active tokens for the user.
+		/// </summary>
+		IReadOnlyCollection<IToken> Tokens { get; }
 	}
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -28,8 +24,20 @@ namespace Manatee.Trello.IntegrationTests
 			member.Status.Should().NotBeNull();
 			member.Url.Should().Be("https://trello.com/s_littlecrabsolutions");
 			member.UserName.Should().Be("s_littlecrabsolutions");
+		}
 
-			Console.WriteLine(member.AvatarUrl);
+		[Test]
+		public async Task Collections()
+		{
+			var me = TestEnvironment.Current.Me;
+
+			await me.Refresh();
+
+			me.Actions.Should().NotBeNullOrEmpty();
+			me.Boards.Should().NotBeNullOrEmpty();
+			me.Notifications.Should().NotBeNull();
+			me.Organizations.Should().NotBeNullOrEmpty();
+			me.Tokens.Should().NotBeNullOrEmpty();
 		}
 	}
 }

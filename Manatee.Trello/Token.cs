@@ -127,6 +127,12 @@ namespace Manatee.Trello
 		/// </summary>
 		public ITokenPermission OrganizationPermissions { get; }
 
+		internal IJsonToken Json
+		{
+			get { return _context.Data; }
+			set { _context.Merge(value); }
+		}
+
 		static Token()
 		{
 			DownloadedFields = (Fields)Enum.GetValues(typeof(Fields)).Cast<int>().Sum();

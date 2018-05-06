@@ -135,7 +135,11 @@ namespace Manatee.Trello
 			/// Indicates the avatar URL should be downloaded.
 			/// </summary>
 			[Display(Description = "avatarUrl")]
-			AvatarUrl = 1 << 23
+			AvatarUrl = 1 << 23,
+			/// <summary>
+			/// Indicates the tokens will be downloaded.
+			/// </summary>
+			Tokens = 1 << 24
 		}
 
 		private readonly Field<string> _avatarUrl;

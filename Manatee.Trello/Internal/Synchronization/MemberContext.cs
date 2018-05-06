@@ -36,6 +36,7 @@ namespace Manatee.Trello.Internal.Synchronization
 		public ReadOnlyOrganizationCollection Organizations { get; }
 		public MemberPreferencesContext MemberPreferencesContext { get; }
 		public virtual bool HasValidId => IdRule.Instance.Validate(Data.Id, null) == null;
+		public ReadOnlyTokenCollection Tokens { get; set; }
 
 		static MemberContext()
 		{
@@ -120,6 +121,7 @@ namespace Manatee.Trello.Internal.Synchronization
 				                ? new OrganizationCollection(() => Data.Id, auth)
 				                : new ReadOnlyOrganizationCollection(() => Data.Id, auth);
 			Notifications = new ReadOnlyNotificationCollection(() => Data.Id, auth);
+			Tokens = new ReadOnlyTokenCollection(() => Data.Id, auth);
 
 			MemberPreferencesContext = new MemberPreferencesContext(Auth);
 			MemberPreferencesContext.SubmitRequested += ct => HandleSubmitRequested("Preferences", ct);
@@ -172,6 +174,8 @@ namespace Manatee.Trello.Internal.Synchronization
 					Parameters["organizations"] = "all";
 					Parameters["organization_fields"] = OrganizationContext.CurrentParameters["fields"];
 				}
+				if (parameterFields.HasFlag(Member.Fields.Tokens))
+					Parameters["tokens"] = "all";
 			}
 		}
 
@@ -226,6 +230,11 @@ namespace Manatee.Trello.Internal.Synchronization
 			{
 				Organizations.Update(json.Organizations.Select(a => a.GetFromCache<Organization, IJsonOrganization>(Auth)));
 				properties.Add(nameof(Member.Organizations));
+			}
+			if (json.Tokens != null)
+			{
+				Tokens.Update(json.Tokens.Select(a => a.GetFromCache<Token, IJsonToken>(Auth)));
+				properties.Add(nameof(Me.Tokens));
 			}
 
 			return properties;

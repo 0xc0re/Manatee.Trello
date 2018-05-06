@@ -75,6 +75,10 @@ namespace Manatee.Trello
 		/// </summary>
 		public IMemberPreferences Preferences { get; }
 		/// <summary>
+		/// Get the collection of active tokens for the user.
+		/// </summary>
+		public IReadOnlyCollection<IToken> Tokens => _context.Tokens;
+		/// <summary>
 		/// Gets or sets the member's username.
 		/// </summary>
 		public new string UserName
