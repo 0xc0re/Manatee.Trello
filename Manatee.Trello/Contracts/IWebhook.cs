@@ -8,8 +8,7 @@ namespace Manatee.Trello
 	/// <summary>
 	/// Represents a webhook.
 	/// </summary>
-	/// <typeparam name="T">The type of object to which the webhook is attached.</typeparam>
-	public interface IWebhook<T> : ICacheable where T : class, ICanWebhook
+	public interface IWebhook : ICacheable
 	{
 		/// <summary>
 		/// Gets or sets a callback URL for the webhook.
@@ -32,16 +31,6 @@ namespace Manatee.Trello
 		bool? IsActive { get; set; }
 
 		/// <summary>
-		/// Gets or sets the webhook's target.
-		/// </summary>
-		T Target { get; set; }
-
-		/// <summary>
-		/// Raised when data on the webhook is updated.
-		/// </summary>
-		event Action<IWebhook<T>, IEnumerable<string>> Updated;
-
-		/// <summary>
 		/// Deletes the webhook.
 		/// </summary>
 		/// <param name="ct">(Optional) A cancellation token for async processing.</param>
@@ -55,5 +44,23 @@ namespace Manatee.Trello
 		/// </summary>
 		/// <param name="ct">(Optional) A cancellation token for async processing.</param>
 		Task Refresh(CancellationToken ct = default(CancellationToken));
+	}
+
+	/// <summary>
+	/// Represents a webhook.
+	/// </summary>
+	/// <typeparam name="T">The type of object to which the webhook is attached.</typeparam>
+	public interface IWebhook<T> : IWebhook
+		where T : class, ICanWebhook
+	{
+		/// <summary>
+		/// Gets or sets the webhook's target.
+		/// </summary>
+		T Target { get; set; }
+
+		/// <summary>
+		/// Raised when data on the webhook is updated.
+		/// </summary>
+		event Action<IWebhook<T>, IEnumerable<string>> Updated;
 	}
 }

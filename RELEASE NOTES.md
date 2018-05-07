@@ -1,19 +1,21 @@
 ## 3.1.0
 
-New members:
-
-- `static Meember.AvatarSize`
-- `Member.Fields.AvatarUrl`
-
-New types:
-
-- `AvatarSize`
-
 Functional changes:
 
 - `Member.AvatarUrl` now returns sized image assigned by `static Member.AvatarSize`
 
-Obsoleted the following:
+New members:
+
+- `static Meember.AvatarSize`
+- `Member.Fields.AvatarUrl`
+- `Member.Tokens`
+
+New types:
+
+- `AvatarSize`
+- `ReadOnlyTokenCollection`
+
+Obsoleted:
 
 - `Member.Fields.AvatarHash`
 - `Member.Fields.AvatarSource`
@@ -21,10 +23,10 @@ Obsoleted the following:
 - `Member.Fields.UploadedAvatarHash`
 - `Member.AvatarSource` (now just returns null)
 
-
 GitHub issues:
 
 - [#178](https://github.com/gregsdennis/Manatee.Trello/issues/178)
+- [#164](https://github.com/gregsdennis/Manatee.Trello/issues/164)
 
 ## 3.0.5
 

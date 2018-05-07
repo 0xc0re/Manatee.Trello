@@ -119,6 +119,7 @@ namespace Manatee.Trello.Internal.DataAccess
 		Sticker_Write_Delete,
 		Sticker_Write_Update,
 		Token_Read_Refresh,
+		Token_Read_Webhooks,
 		Token_Write_Delete,
 		Webhook_Read_Refresh,
 		Webhook_Write_Delete,

@@ -25,7 +25,7 @@ namespace Manatee.Trello.Internal.Caching
 					{typeof (IJsonMember), typeof (Member)},
 					{typeof (IJsonOrganization), typeof (Organization)},
 					{typeof (IJsonNotification), typeof (Notification)},
-					{typeof (IJsonToken), typeof (Token)},
+					{typeof (IJsonToken), typeof (Token)}
 				};
 			JsonFactory = new Dictionary<Type, Func<IJsonCacheable, TrelloAuthorization, object[], ICacheable>>
 				{
@@ -116,6 +116,14 @@ namespace Manatee.Trello.Internal.Caching
 					return new NumberField(json, cardId, auth);
 				default:
 					return null;
+			}
+		}
+
+		private static IWebhook _BuildWebhook(IJsonWebhook json, TrelloAuthorization auth)
+		{
+			switch (json.ModelType)
+			{
+					
 			}
 		}
 	}

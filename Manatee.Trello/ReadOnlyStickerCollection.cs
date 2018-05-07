@@ -34,4 +34,16 @@ namespace Manatee.Trello
 				}));
 		}
 	}
+
+	public class ReadOnlyWebhookCollection : ReadOnlyCollection<IWebhook>
+	{
+		public ReadOnlyWebhookCollection(Func<string> getOwnerId, TrelloAuthorization auth) : base(getOwnerId, auth)
+		{
+		}
+
+		public override Task Refresh(CancellationToken ct = default(CancellationToken))
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

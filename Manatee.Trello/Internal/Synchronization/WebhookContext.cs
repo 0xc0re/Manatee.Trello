@@ -37,7 +37,7 @@ namespace Manatee.Trello.Internal.Synchronization
 						new Property<IJsonWebhook, T>(
 							(d, a) => d.IdModel == null
 								          ? null
-								          : TrelloConfiguration.Cache.Find<T>(d.IdModel) ?? BuildModel(d.IdModel),
+								          : TrelloConfiguration.Cache.Find<T>(d.IdModel) ?? BuildModel(d.IdModel, a),
 							(d, o) => d.IdModel = o?.Id)
 					},
 				};
@@ -107,9 +107,9 @@ namespace Manatee.Trello.Internal.Synchronization
 			return !_deleted;
 		}
 
-		private static T BuildModel(string id)
+		private static T BuildModel(string id, TrelloAuthorization auth)
 		{
-			return (T) Activator.CreateInstance(typeof (T), id, null);
+			return (T) Activator.CreateInstance(typeof (T), id, auth);
 		}
 	}
 }

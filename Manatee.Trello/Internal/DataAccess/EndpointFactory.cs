@@ -122,6 +122,7 @@ namespace Manatee.Trello.Internal.DataAccess
 					{EntityRequestType.Sticker_Write_Delete, () => new Endpoint(RestMethod.Delete, "cards", "_cardId", "stickers", "_id")},
 					{EntityRequestType.Sticker_Write_Update, () => new Endpoint(RestMethod.Put, "cards", "_cardId", "stickers", "_id")},
 					{EntityRequestType.Token_Read_Refresh, () => new Endpoint(RestMethod.Get, "tokens", "_token")},
+					{EntityRequestType.Token_Read_Webhooks, () => new Endpoint(RestMethod.Get, "tokens", "_token", "webhooks")},
 					{EntityRequestType.Token_Write_Delete, () => new Endpoint(RestMethod.Delete, "tokens", "_token")},
 					{EntityRequestType.Webhook_Read_Refresh, () => new Endpoint(RestMethod.Get, "webhooks", "_id")},
 					{EntityRequestType.Webhook_Write_Delete, () => new Endpoint(RestMethod.Delete, "webhooks", "_id")},
