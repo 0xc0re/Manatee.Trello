@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Manatee.Trello.Json
 {
@@ -33,5 +34,24 @@ namespace Manatee.Trello.Json
 		/// </summary>
 		[JsonSerialize]
 		string Text { get; set; }
+
+		[JsonDeserialize]
+		List<IJsonReaction> Reactions { get; set; }
+	}
+
+	public interface IJsonReaction : IJsonCacheable
+	{
+		IJsonMember Member { get; set; }
+		string IdModel { get; set; }
+		IJsonEmoji Emoji { get; set; }
+	}
+
+	public interface IJsonEmoji
+	{
+		string Unified { get; set; }
+		string Native { get; set; }
+		string Name { get; set; }
+		object SkinVariation { get; set; }
+		string ShortName { get; set; }
 	}
 }
