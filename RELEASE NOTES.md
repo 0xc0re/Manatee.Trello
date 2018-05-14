@@ -1,8 +1,17 @@
+This file is used to list specific public-facing changes for each version.  The notes on the Nuget package are a summary of these.
+
 ## 3.1.0
 
-Functional changes:
+In line with changes in the Trello API:
 
-- `Member.AvatarUrl` now returns sized image assigned by `static Member.AvatarSize`
+- Getting member avatar images have been augmented. Now the client must specify an image size.  The default is 170x170 which was previously the only option.  Now 30x30 and 50x50 are available as well.
+    - https://trello.com/c/VX8B4ndj
+- Label uses have been removed from the API.
+    - https://trello.com/c/qlIE6fkg
+
+`Member.AvatarUrl` now returns sized image assigned by `static Member.AvatarSize`
+
+### Changes
 
 New members:
 
@@ -22,11 +31,36 @@ Obsoleted:
 - `Member.Fields.GravatarHash`
 - `Member.Fields.UploadedAvatarHash`
 - `Member.AvatarSource` (now just returns null)
+- `Label.Uses` (now just returns null)
+- `IJsonLabel.Uses`
 
-GitHub issues:
+## 3.0.10
 
-- [#178](https://github.com/gregsdennis/Manatee.Trello/issues/178)
-- [#164](https://github.com/gregsdennis/Manatee.Trello/issues/164)
+Attachment image previews have their ID property serialized as `_id` rather than `id`.
+
+## 3.0.9
+
+Changed serialization of numbers when setting custom field values to use invariant culture.
+
+## 3.0.8
+
+Updated file location for license usage details to local app data for the current user.
+
+Updated power-up implementation:
+
+- `IBoard.PowerUps` is now `IPowerUpCollection` (was `IReadOnlyCollection<IPowerUp>`)
+    - Adds `EnablePowerUp()` and `DisablePowerUp()`
+- Fixed issues with setting number, string, and drop-down custom fields
+
+## 3.0.7
+
+Bug fix for setting dropdown and text custom fields on cards without values.
+
+Internal updates to collection classes.
+
+## 3.0.6
+
+Updated boards and cards to only cache themselves once the full ID has been downloaded.
 
 ## 3.0.5
 
