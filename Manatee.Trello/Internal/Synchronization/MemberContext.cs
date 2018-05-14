@@ -195,7 +195,7 @@ namespace Manatee.Trello.Internal.Synchronization
 		}
 		protected override void ApplyDependentChanges(IJsonMember json)
 		{
-			if (json.Prefs != null)
+			if (MemberPreferencesContext.HasChanges)
 			{
 				json.Prefs = MemberPreferencesContext.GetChanges();
 				MemberPreferencesContext.ClearChanges();
