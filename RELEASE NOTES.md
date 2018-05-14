@@ -1,3 +1,5 @@
+This file is used to list specific public-facing changes for each version.  The notes on the Nuget package are a summary of these.
+
 ## 3.1.0
 
 ### Summary
@@ -33,12 +35,6 @@ Obsoleted the following:
 - `Member.AvatarSource` (now just returns null)
 - `Label.Uses` (now just returns null)
 - `IJsonLabel.Uses`
-
-GitHub issues:
-
-- [#178](https://github.com/gregsdennis/Manatee.Trello/issues/178)
-
-This file is used to list specific public-facing changes for each version.  The notes on the Nuget package are a summary of these.
 
 ## 3.0.10
 
