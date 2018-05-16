@@ -30,19 +30,19 @@ Features:
         - Add/Edit personal preferences
         - Add/Remove members
         - Add/Edit/Delete custom fields
-        - Add to organization
+        - Add/Remove to/from organization
+        - Enable/Disable power-ups
     - Lists
-        - Add/Edit
+        - Add/Edit/Reorder
         - Move to board
-        - Reorder
     - Cards
-        - Add/Edit/Delete
+        - Add/Copy/Edit/Delete/Reorder
         - Add/Edit/Clear custom field data
         - Add/Edit/Remove stickers
         - Add/Edit/Delete comments
-        - Add/Edit/Delete checklists & items
+        - Add/Copy/Edit/Delete/Reorder checklists
+        - Add/Edit/Delete/Reorder checklist items
         - Move to list
-        - Reorder
     - Organizations (Teams)
         - Add/Edit/Delete
         - Read/Set org-wide preferences & permissions
@@ -63,11 +63,11 @@ Features:
     - Webhooks
         - Add/Edit/Delete
 
-The free version will permit 300 downloads and 300 uploads per hour.  If you need more than this, please consider [purchasing a license](Licensing.md).
+The free version will permit 300 downloads and 300 uploads per hour.  If you need more than this, please consider [purchasing a license](licensing.md).
 
 # How it all started
 
-When I started this project, I was a software support developer, which meant that when other people’s code did something it wasn't supposed to, I was on the team that determined where the bug was and fixed it.  As such we had a plethora of systems dedicated to managing our list of found problems.
+When I started this project in 2012, I was a software support developer, which meant that when other people’s code did something it wasn't supposed to, I was on the team that determined where the bug was and fixed it.  As such we had a plethora of systems dedicated to managing our list of found problems.
 
 The business users (my bosses) wanted a simple report to show the statuses of all of the problems we were working on as well as what was in our backlog and what we were planning on tackling next.  Enter Trello.  Following the example of Trello's own [Dev Board](https://trello.com/dev), I created an organization for the company and a board for my team so that my internal customers could simply load up our board and see the information in an easy-to-read manner.
 
@@ -75,4 +75,4 @@ After about a month of manually updating cards in both our problem management sy
 
 Thus, Manatee.Trello was conceived.
 
-Since its conception, I have moved through the ranks to a Senior Developer role, implementing design patterns, best practices, and architectures all over everywhere.  I have endeavored to apply that knowledge and experience to this library.
+Since its conception, I have moved through the ranks (and the world) to a Senior Developer role, implementing design patterns, best practices, and architectures all over everywhere.  I have endeavored to apply that knowledge and experience to this library.
