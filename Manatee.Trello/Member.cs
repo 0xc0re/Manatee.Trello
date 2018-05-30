@@ -136,7 +136,10 @@ namespace Manatee.Trello
 			/// </summary>
 			[Display(Description = "avatarUrl")]
 			AvatarUrl = 1 << 23,
-			StarredBoards = 1 << 24
+			/// <summary>
+			/// Indicates the starred boards will be downloaded.
+			/// </summary>
+			StarredBoards = 1 << 24,
 			/// <summary>
 			/// Indicates the tokens will be downloaded.
 			/// </summary>
