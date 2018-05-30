@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -38,6 +39,25 @@ namespace Manatee.Trello.IntegrationTests
 			me.Notifications.Should().NotBeNull();
 			me.Organizations.Should().NotBeNullOrEmpty();
 			me.Tokens.Should().NotBeNullOrEmpty();
+		}
+
+		[Test]
+		public async Task StarredBoards()
+		{
+			var member = TestEnvironment.Current.Me;
+			var board = TestEnvironment.Current.Board;
+
+			await member.Refresh();
+			await board.Refresh();
+
+			board.IsStarred.Should().Be(false);
+
+			await member.StarredBoards.Add(board);
+			await board.Refresh(true);
+			await member.Refresh(true);
+
+			board.IsStarred.Should().Be(true);
+			member.StarredBoards.Should().Contain(s => s.Board == board);
 		}
 	}
 }

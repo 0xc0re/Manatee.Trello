@@ -1,6 +1,6 @@
 ---
-title: 3.0.10
-type: bug fix
+title: 3.1.0
+type: new feature
 ---
 
 ## Summary
@@ -16,6 +16,10 @@ In line with changes in the Trello API:
 
 `Member.AvatarUrl` now returns sized image assigned by `static Member.AvatarSize`
 
+Starred boards are represented as objects in the Trello API.  Previous versions only exposed `Board.IsStarred` as a read-only property.  This can now be listed and manipulated through the `StarredBoard` entity and its collection on the `Member` and `Me` entities, respectively.
+
+Updated collection `Add()` methods to include optional parameters so that the data can be included as part of the creation process rather than having to set properties which would require at least one additional call.
+
 ## Changes
 
 New members:
@@ -25,6 +29,15 @@ New members:
 - `Member.Tokens`
 - `ICustomFieldDefinition.DisplayInfo`
 - `CustomFieldDefinition.DisplayInfo`
+- `IJsonMember.StarredBoards`
+- `Member.StarredBoards`
+- `Me.StarredBoards`
+- Optional `description` parameter for `IBoardCollection.Add()`
+- Optional `description` parameter for `BoardCollection.Add()`
+- Optional `position` parameter for `IListCollection.Add()`
+- Optional `position` parameter for `ListCollection.Add()`
+- Optional `description` and `name` parameters for `IOrganizationCollection.Add()`
+- Optional `description` and `name` parameters for `OrganizationCollection.Add()`
 
 New types:
 
@@ -32,6 +45,11 @@ New types:
 - `ReadOnlyTokenCollection`
 - `ICustomFieldDisplayInfo`
 - `CustomFieldDisplayInfo`
+- `IJsonStarredBoard`
+- `StarredBoard`
+- `ReadOnlyStarredBoardCollection`
+- `IStarredBoardCollection`
+- `StarredBoardCollection`
 
 Functional changes:
 
